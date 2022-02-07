@@ -19,12 +19,12 @@ def fibonacci(n):
     elif n == 1:
         return 1
     else:
-        n2 = 0
-        n1 = 1
+        n_2 = 0
+        n_1 = 1
         for i in range(1,n):
-            fib = n1 + n2
-            n2 = n1
-            n1 = fib
+            fib = n_1 + n_2
+            n_2 = n_1
+            n_1 = fib
         return fib
 
 
@@ -45,14 +45,42 @@ def lucas(n):
     elif n == 1:
         return 1
     else:
-        n2 = 2
-        n1 = 1
+        n_2 = 2
+        n_1 = 1
         for i in range(1,n):
-            lucas = n1 + n2
-            n2 = n1
-            n1 = lucas
-        return lucas
+            luc = n_1 + n_2
+            n_2 = n_1
+            n_1 = luc
+        return luc
 
 
 def sum_series(n, n0=0, n1=1):
-    pass
+    """
+            Summary:
+            Calculate the nth value in a general sum_series, that adds the
+             previous 2 values, starting with zero index
+
+            Parameters:
+            arg1 (int): parameter n
+            arg2 (int): optional parameter n0, default value of 0
+            arg3 (int): optional parameter n1, default value of 1
+
+            Returns:
+            int: nth value in the sum_series
+
+            """
+    if n == 0:
+        return n0
+    elif n == 1:
+        return n1
+    else:
+        n_2 = n0
+        n_1 = n1
+        for i in range(1,n):
+            gen_sum = n_1 + n_2
+            n_2 = n_1
+            n_1 = gen_sum
+        return gen_sum
+
+print(lucas(5))
+print(sum_series(5,2,1))
